@@ -41,6 +41,7 @@ func (c *ClientAuthRequest) Transport(endpoint *Endpoint) error {
 			Renegotiation:      tls.RenegotiateOnceAsClient,
 			InsecureSkipVerify: endpoint.Insecure,
 			Certificates:       []tls.Certificate{cert},
+			MaxVersion:         tls.VersionTLS12,
 		},
 		Dial:                  dial,
 		ResponseHeaderTimeout: endpoint.Timeout,
